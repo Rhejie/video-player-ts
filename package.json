@@ -1,17 +1,17 @@
 {
-  "name": "revdojo-videoplayer",
-  "version": "0.0.1",
+  "name": "rev-vp",
+  "version": "0.1.1",
   "private": false,
   "type": "module",
   "files": [
     "dist"
   ],
-  "module": "./dist/rev-video-player-lib.js",
-  "main": "./dist/rev-video-player-lib.umd.cjs",
+  "module": "./dist/rev-vp.js",
+  "main": "./dist/rev-vp.umd.cjs",
   "exports": {
     ".": {
-      "import": "./dist/rev-video-player-lib.js",
-      "require": "./dist/rev-video-player-lib.umd.cjs"
+      "import": "./dist/rev-vp.js",
+      "require": "./dist/rev-vp.umd.cjs"
     },
     "./dist/style.css": {
       "import": "./dist/style.css",

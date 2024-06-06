@@ -167,7 +167,15 @@ const handleInitializePlayer = () => {
 
 // Extract ID from vimeo link
 const getVideoIdFromUrl = (url: string): string => {
-  const match = url.match(/video\/(\d+)/)
+  if (url.includes('video')) {
+    const match = url.match(/video\/(\d+)/)
+    return match ? match[1] : ''
+  }
+
+  const vimeoRegex = /https?:\/\/(?:www\.)?vimeo.com\/(\d+)/
+
+  // Test the URL and extract the video ID if it matches
+  const match = url.match(vimeoRegex)
   return match ? match[1] : ''
 }
 
@@ -221,8 +229,8 @@ onUnmounted(() => {
 <template>
   <div class="rev-video-player">
     <video v-if="!isVimeo" ref="videoPlayer" class="video-js vjs-default-skin"></video>
-    <div class="rev-vimeo-video-player" v-else ref="vimeoWrapper">
-      <div ref="vimeoPlayer" style="width: 100%"></div>
+    <div class="rev-vimeo-video-player" v-if="isVimeo" ref="vimeoWrapper">
+      <div ref="vimeoPlayer" style="width: 100%; height: 100%"></div>
     </div>
   </div>
 </template>
@@ -230,9 +238,11 @@ onUnmounted(() => {
 <style>
 .rev-video-player {
   width: 100%;
+  height: 100%;
 }
 
 .rev-vimeo-video-player {
   width: 100%;
+  height: 100%;
 }
 </style>

@@ -35,3 +35,5 @@ declare module '@vimeo/player' {
     // Add other methods you might use from the Vimeo Player API
   }
 }
+
+declare module 'rev-vp'
